@@ -66,7 +66,9 @@ ai-learning/
     ├── basic_chat.py           # 基础对话 & 多轮对话
     ├── code_assistant.py       # Java 代码助手（解释/审查/优化/生成）
     ├── compare_models.py       # 多厂商模型横向对比
-    └── prompt_engineering.py   # Prompt 工程技巧演示
+    ├── prompt_engineering.py   # Prompt 工程技巧演示
+    ├── java_to_python.py       # Java 代码 → Python 代码转换
+    └── generate_unit_test.py   # AI 自动生成 JUnit5 单元测试用例
 ```
 
 ---
@@ -136,6 +138,8 @@ print(response)
 | `examples/code_assistant.py` | 交互式 Java 代码助手，支持命令行操作 |
 | `examples/compare_models.py` | 同一问题让多个模型作答，方便横向对比 |
 | `examples/prompt_engineering.py` | 演示结构化 Prompt、Few-shot 学习、思维链（CoT）技巧 |
+| `examples/java_to_python.py` | 用 AI 将 Java 代码转换为地道的 Python 代码（含差异说明）|
+| `examples/generate_unit_test.py` | 用 AI 自动生成 JUnit5 单元测试，覆盖工具类/Service/业务逻辑 |
 
 ---
 
