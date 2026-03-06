@@ -33,7 +33,7 @@ CONFIG = {
 }
 
 # 默认使用的厂商
- DEFAULT_PROVIDER = "zhipu"
+DEFAULT_PROVIDER = "zhipu"
 # DEFAULT_PROVIDER = "deepseek"
 # DEFAULT_PROVIDER = "kimi"
 
