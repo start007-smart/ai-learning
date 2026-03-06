@@ -6,6 +6,11 @@
 
 import os
 import sys
+from dotenv import load_dotenv
+
+# 提前加载 .env，确保 check_env() 能读取到 API Key
+load_dotenv()
+
 
 # 检查环境
 def check_env():
@@ -47,9 +52,11 @@ def main():
 
     from ai_client import AIClient
 
-    # 使用智谱（免费）
-    print("🤖 初始化智谱AI客户端...")
-    client = AIClient(provider="zhipu")
+    # 使用默认厂商（在 config.py 中配置 DEFAULT_PROVIDER）
+    from config import DEFAULT_PROVIDER
+    print(f"🤖 初始化 {DEFAULT_PROVIDER} 客户端...")
+    client = AIClient()
+
 
     # 场景1: 基础问答
     print("\n" + "=" * 60)
