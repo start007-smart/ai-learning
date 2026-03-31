@@ -68,7 +68,10 @@ ai-learning/
     ├── compare_models.py       # 多厂商模型横向对比
     ├── prompt_engineering.py   # Prompt 工程技巧演示
     ├── java_to_python.py       # Java 代码 → Python 代码转换
-    └── generate_unit_test.py   # AI 自动生成 JUnit5 单元测试用例
+    ├── generate_unit_test.py   # AI 自动生成 JUnit5 单元测试用例
+    ├── mysql_query_demo.py     # MySQL 数据库连接与查询示例
+    ├── function_calling_weather.py # AI Function Calling (函数调用) 示例
+    └── text_chunking.py        # 文本分块策略（按字符、Token、语义）
 ```
 
 ---
@@ -140,6 +143,9 @@ print(response)
 | `examples/prompt_engineering.py` | 演示结构化 Prompt、Few-shot 学习、思维链（CoT）技巧 |
 | `examples/java_to_python.py` | 用 AI 将 Java 代码转换为地道的 Python 代码（含差异说明）|
 | `examples/generate_unit_test.py` | 用 AI 自动生成 JUnit5 单元测试，覆盖工具类/Service/业务逻辑 |
+| `examples/mysql_query_demo.py` | 演示 Python 连接本地 MySQL 数据库并获取表结构和数据 |
+| `examples/function_calling_weather.py` | 演示大模型工具调用 (Function Calling)，实现通过天气 API 问答 |
+| `examples/text_chunking.py` | 常用文本分块策略演示（按字符、按 Token、按语义） |
 
 ---
 

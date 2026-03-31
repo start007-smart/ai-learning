@@ -66,7 +66,7 @@ def get_weather(city: str, unit: str = "celsius") -> dict:
 
     Returns:
         天气数据字典
-    """
+    """ 
     # 模拟不同城市的天气数据，增加随机浮动让结果更真实
     city_weather_data = {
         "北京": {"condition": "晴", "temp_base": 12, "humidity": 35, "wind": "西北风3级"},
