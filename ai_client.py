@@ -1,5 +1,5 @@
 """
-统一AI客户端 - 支持智谱/Kimi/DeepSeek
+统一AI客户端 - 支持 OpenAI/智谱/Kimi/DeepSeek
 """
 
 import os
@@ -16,7 +16,7 @@ class AIClient:
         初始化客户端
 
         Args:
-            provider: 厂商名称 zhipu/kimi/deepseek
+            provider: 厂商名称 openai/zhipu/kimi/deepseek
             model: 指定模型，None则使用默认
         """
         self.provider = provider or DEFAULT_PROVIDER
@@ -36,13 +36,13 @@ class AIClient:
                 print("❌ 请先安装: pip install zhipuai")
                 sys.exit(1)
 
-        elif self.provider in ["kimi", "deepseek"]:
+        elif self.provider in ["openai", "kimi", "deepseek"]:
             try:
                 from openai import OpenAI
-                self.client = OpenAI(
-                    api_key=self.config["api_key"],
-                    base_url=self.config["base_url"]
-                )
+                client_kwargs = {"api_key": self.config["api_key"]}
+                if self.config.get("base_url"):
+                    client_kwargs["base_url"] = self.config["base_url"]
+                self.client = OpenAI(**client_kwargs)
             except ImportError:
                 print("❌ 请先安装: pip install openai")
                 sys.exit(1)
@@ -83,6 +83,15 @@ class AIClient:
                 )
                 return response.choices[0].message.content
 
+            elif self.provider == "openai":
+                response = self.client.responses.create(
+                    model=self.model,
+                    instructions=system,
+                    input=message,
+                    temperature=temperature,
+                )
+                return response.output_text
+
             else:  # kimi/deepseek 使用OpenAI格式
                 response = self.client.chat.completions.create(
                     model=self.model,
@@ -94,6 +103,38 @@ class AIClient:
 
         except Exception as e:
             return f"❌ 调用失败: {str(e)}"
+
+    def chat_json(self,
+                  message: str,
+                  system: str,
+                  schema_name: str,
+                  schema: Dict,
+                  temperature: float = 0.7) -> Dict:
+        """让模型按 JSON Schema 返回结构化结果。"""
+        if self.provider != "openai":
+            raw = self.chat(message, system=system, temperature=temperature)
+            import json
+            return json.loads(raw)
+
+        try:
+            response = self.client.responses.create(
+                model=self.model,
+                instructions=system,
+                input=message,
+                temperature=temperature,
+                text={
+                    "format": {
+                        "type": "json_schema",
+                        "name": schema_name,
+                        "schema": schema,
+                        "strict": True,
+                    }
+                },
+            )
+            import json
+            return json.loads(response.output_text)
+        except Exception as e:
+            raise RuntimeError(f"OpenAI structured output failed: {e}") from e
 
     def code_review(self, code: str, language: str = "Java") -> str:
         """代码审查专用"""

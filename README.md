@@ -71,6 +71,7 @@ ai-learning/
     ├── generate_unit_test.py   # AI 自动生成 JUnit5 单元测试用例
     ├── mysql_query_demo.py     # MySQL 数据库连接与查询示例
     ├── function_calling_weather.py # AI Function Calling (函数调用) 示例
+    ├── embedding_models_demo.py # 向量模型区别理解(ada-002/BGE/M3E)
     └── text_chunking.py        # 文本分块策略（按字符、Token、语义）
 ```
 
@@ -145,6 +146,7 @@ print(response)
 | `examples/generate_unit_test.py` | 用 AI 自动生成 JUnit5 单元测试，覆盖工具类/Service/业务逻辑 |
 | `examples/mysql_query_demo.py` | 演示 Python 连接本地 MySQL 数据库并获取表结构和数据 |
 | `examples/function_calling_weather.py` | 演示大模型工具调用 (Function Calling)，实现通过天气 API 问答 |
+| `examples/embedding_models_demo.py` | 向量(Embedding)模型理解：对比 text-embedding-ada-002、BGE、M3E，兼顾智谱提取演示 |
 | `examples/text_chunking.py` | 常用文本分块策略演示（按字符、按 Token、按语义） |
 
 ---

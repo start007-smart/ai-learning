@@ -14,6 +14,11 @@ load_dotenv()
 
 # API配置
 CONFIG = {
+    "openai": {
+        "api_key": os.getenv("OPENAI_API_KEY", ""),
+        "model": os.getenv("OPENAI_MODEL", "gpt-5.4"),
+        "base_url": os.getenv("OPENAI_BASE_URL") or None,
+    },
     "zhipu": {
         "api_key": os.getenv("ZHIPU_API_KEY", ""),
         "model": "glm-4-flash",  # 免费版
@@ -34,6 +39,7 @@ CONFIG = {
 
 # 默认使用的厂商
 DEFAULT_PROVIDER = "zhipu"
+# DEFAULT_PROVIDER = "openai"
 # DEFAULT_PROVIDER = "deepseek"
 # DEFAULT_PROVIDER = "kimi"
 
