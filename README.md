@@ -62,6 +62,8 @@ ai-learning/
 ├── ai_client.py            # 统一 AI 客户端核心类
 ├── demo.py                 # 🚀 快速入门演示（推荐从这里开始）
 ├── test.py                 # 基础调用示例
+├── docs/                   # 学习笔记与技术分享文档
+│   └── chromadb_tutorial.md # ChromaDB 极速入门与原理解析（适合社区发布）
 └── examples/               # 进阶示例
     ├── basic_chat.py           # 基础对话 & 多轮对话
     ├── code_assistant.py       # Java 代码助手（解释/审查/优化/生成）
@@ -72,7 +74,8 @@ ai-learning/
     ├── mysql_query_demo.py     # MySQL 数据库连接与查询示例
     ├── function_calling_weather.py # AI Function Calling (函数调用) 示例
     ├── embedding_models_demo.py # 向量模型区别理解(ada-002/BGE/M3E)
-    └── text_chunking.py        # 文本分块策略（按字符、Token、语义）
+    ├── text_chunking.py        # 文本分块策略（按字符、Token、语义）
+    └── chromadb_demo.py        # ChromaDB 向量数据库基础使用演示
 ```
 
 ---
@@ -148,6 +151,7 @@ print(response)
 | `examples/function_calling_weather.py` | 演示大模型工具调用 (Function Calling)，实现通过天气 API 问答 |
 | `examples/embedding_models_demo.py` | 向量(Embedding)模型理解：对比 text-embedding-ada-002、BGE、M3E，兼顾智谱提取演示 |
 | `examples/text_chunking.py` | 常用文本分块策略演示（按字符、按 Token、按语义） |
+| `examples/chromadb_demo.py` | ChromaDB 向量数据库入门体验：初始化、存入文本记录与相似度查询 |
 
 ---
 
