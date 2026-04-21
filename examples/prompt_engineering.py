@@ -2,8 +2,11 @@
 Prompt工程技巧演示
 """
 
+import os
 import sys
-sys.path.append('..')
+
+# 添加上一级目录到 sys.path，以便导入我们核心的 ai_client.py
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from ai_client import AIClient
 
